@@ -1,19 +1,18 @@
-import OptionsSync from 'webext-options-sync';
+import OptionsSync from "webext-options-sync";
 
 const optionsStorage = new OptionsSync({
 	defaults: {
-		token: '',
-		rootUrl: 'https://api.github.com/',
+		app_key: "",
+		token: "",
+		rootUrl: "https://trello.com/",
 		playNotifSound: false,
 		showDesktopNotif: false,
 		onlyParticipating: false,
 		reuseTabs: false,
 		updateCountOnNavigation: false,
-		filterNotifications: false
+		filterNotifications: false,
 	},
-	migrations: [
-		OptionsSync.migrations.removeUnused
-	]
+	migrations: [OptionsSync.migrations.removeUnused],
 });
 
 export default optionsStorage;

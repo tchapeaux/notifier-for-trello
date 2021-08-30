@@ -1,6 +1,6 @@
 <!doctype html>
 <meta charset="utf-8">
-<title>Notifier for GitHub</title>
+<title>Notifier for Trello</title>
 <link rel="stylesheet" href="chrome://global/skin/in-content/common.css">
 <link rel="stylesheet" href="options.css">
 <form id="options-form">
@@ -9,40 +9,21 @@
 
 		<label>
 			<h4>Root URL</h4>
-			<input type="url" name="rootUrl" placeholder="e.g. https://github.yourco.com/">
+			<input type="url" name="rootUrl" value="https://trello.com" disabled="true">
 		</label>
-		<p class="small">Specify the root URL to your GitHub Enterprise.</p>
+		<p class="small">Specify the root URL to the Trello API. There isn't really a reason to change this.</p>
+
+		<label>
+			<h4>App Key</h4>
+			<input type="text" name="app_key" spellcheck="false">
+		</label>
+
 
 		<label>
 			<h4>Token</h4>
-			<input type="text" name="token" placeholder="ghp_a1b2c3d4e5f6g7h8i9j0a1b2c3d4e5f6g7h8" pattern="[\da-f]{40}|ghp_\w{36,251}" spellcheck="false">
+			<input type="text" name="token" spellcheck="false">
 		</label>
-		<p class="small">For public repositories, <a href="https://github.com/settings/tokens/new?scopes=notifications&description=Notifier for GitHub extension" target="_blank">create a token</a> with the <strong>notifications</strong> permission and specify it.</p>
-		<p class="small">If you want notifications for private repositories, you'll need to <a href="https://github.com/settings/tokens/new?scopes=notifications,repo&description=Notifier for GitHub extension" target="_blank">create a token</a> with the <strong>notifications</strong> and <strong>repo</strong> permissions.</p>
-	</section>
-
-	<hr>
-
-	<section>
-		<h3>Participating Count</h3>
-		<label>
-			<input type="checkbox" name="onlyParticipating">
-			Only show unread count for issues I'm participating in
-		</label>
-	</section>
-
-	<hr>
-
-	<section>
-		<h3>Notifications</h3>
-		<label>
-			<input type="checkbox" name="showDesktopNotif" data-request-permission="notifications">
-			Show desktop notifications
-		</label>
-		<label>
-			<input type="checkbox" name="playNotifSound">
-			Enable notification sound
-		</label>
+		<p class="small">To get a key and token, follow <a href="https://developer.atlassian.com/cloud/trello/guides/rest-api/api-introduction/#authentication-and-authorization" target="_blank">these instructions</a>.</p>
 	</section>
 
 	<hr>
@@ -53,30 +34,7 @@
 			<input type="checkbox" name="reuseTabs" data-request-permission="tabs">
 			Reuse notifications tabs when possible
 		</label>
-		<label>
-			<input type="checkbox" name="updateCountOnNavigation" data-request-permission="tabs">
-			Update notification count after opening a notification
-		</label>
 	</section>
-
-	<hr>
-
-	<section>
-		<h3>Filter Notifications</h3>
-		<label>
-			<input type="checkbox" name="filterNotifications">
-			Filter desktop notifications you receive by owner or repository
-		</label>
-	</section>
-</form>
-
-<form id="repositories-form">
-	<p class="small">
-		<span>Select the repositories you want to receive notifications for.</span>
-		<span id="reload-repositories" class="loading"> <a href="#null">Reload repositories</a> <span class="loader"></span></span>
-	</p>
-	<p id="error-message" class="small hidden"></p>
-	<div class="repo-wrapper"></div>
 </form>
 
 <script src="options.js"></script>

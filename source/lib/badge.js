@@ -1,19 +1,19 @@
-import browser from 'webextension-polyfill';
-import * as defaults from './defaults.js';
+import browser from "webextension-polyfill";
+import * as defaults from "./defaults.js";
 
 function render(text, color, title) {
-	browser.browserAction.setBadgeText({text});
-	browser.browserAction.setBadgeBackgroundColor({color});
-	browser.browserAction.setTitle({title});
+	browser.browserAction.setBadgeText({ text });
+	browser.browserAction.setBadgeBackgroundColor({ color });
+	browser.browserAction.setTitle({ title });
 }
 
 function getCountString(count) {
 	if (count === 0) {
-		return '';
+		return "";
 	}
 
-	if (count > 9999) {
-		return '∞';
+	if (count > 99) {
+		return "99+";
 	}
 
 	return String(count);
@@ -22,7 +22,7 @@ function getCountString(count) {
 function getErrorData(error) {
 	const title = defaults.getErrorTitle(error);
 	const symbol = defaults.getErrorSymbol(error);
-	return {symbol, title};
+	return { symbol, title };
 }
 
 export function renderCount(count) {
@@ -33,7 +33,7 @@ export function renderCount(count) {
 
 export function renderError(error) {
 	const color = defaults.getBadgeErrorColor();
-	const {symbol, title} = getErrorData(error);
+	const { symbol, title } = getErrorData(error);
 	render(symbol, color, title);
 }
 
