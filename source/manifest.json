@@ -1,6 +1,6 @@
 {
 	"name": "Notifier for Trello",
-	"version": "0.0.0",
+	"version": "0.0.2",
 	"description": "Displays your Trello notifications unread count",
 	"homepage_url": "https://github.com/tchapeaux/notifier-for-trello",
 	"manifest_version": 2,
