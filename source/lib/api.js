@@ -67,15 +67,10 @@ export async function getNotificationResponse({
 	maxItems = 100,
 	lastModified = "",
 }) {
-	const { onlyParticipating } = await optionsStorage.getAll();
 	const parameters = {
 		page,
 		limit: maxItems,
 	};
-
-	if (onlyParticipating) {
-		parameters.participating = onlyParticipating;
-	}
 
 	if (lastModified) {
 		parameters.since = lastModified;
