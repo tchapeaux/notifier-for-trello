@@ -63,7 +63,7 @@ export async function makeApiRequest(endpoint, parameters) {
 }
 
 export async function getNotificationResponse({
-	page = 1,
+	page = 0,
 	maxItems = 100,
 	lastModified = "",
 }) {
